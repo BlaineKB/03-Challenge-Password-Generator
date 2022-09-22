@@ -9,12 +9,10 @@ function generatePassword() {
   var charSymbol = ["`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "="]
 
   // Prompt user for all of the password criteria
-
   var newPassword = [];
   var input = [];
 
   // Prompts user with a password length question that must be between 8 and 128 characters
-
   var length = prompt ("Choose a password length between 8 and 128 characters.");
 
   if (length < 8 || length > 128){
@@ -24,30 +22,27 @@ function generatePassword() {
   }
 
   // Prompt questions that user must select in order to generate password
-
-  var lowercaseQuestion = confirm ("Would you like your password to contain lowercase letters?");
-  var uppercaseQuestion = confirm ("Would you like your password to contain uppercase letters?");
-  var numberQuestion = confirm ("Would you like your password to contain numbers?");
-  var symbolQuestion = confirm ("Would you like your password to contain special characters?");
+  var lowercasePrompt = confirm ("Would you like your password to contain lowercase letters?");
+  var uppercasePrompt = confirm ("Would you like your password to contain uppercase letters?");
+  var numberPrompt = confirm ("Would you like your password to contain numbers?");
+  var symbolPrompt = confirm ("Would you like your password to contain special characters?");
 
   // Joins user prompt selections into final password
-
-  if (numberQuestion){newPassword = newPassword.concat(charNumber);
+  if (numberPrompt){newPassword = newPassword.concat(charNumber);
   }
   
-  if (uppercaseQuestion){newPassword = newPassword.concat(charUpper);
+  if (uppercasePrompt){newPassword = newPassword.concat(charUpper);
   }
   
-  if (lowercaseQuestion){newPassword = newPassword.concat(charLower);
+  if (lowercasePrompt){newPassword = newPassword.concat(charLower);
   }
   
-  if (symbolQuestion){newPassword = newPassword.concat(charSymbol);
+  if (symbolPrompt){newPassword = newPassword.concat(charSymbol);
   }
   
   
 
   // Randomly generates password including the user prompt selections
-  
   for (var i = 0; i < length; i++) {
       
     input.push (newPassword[Math.floor(Math.random() * newPassword.length)]); 
